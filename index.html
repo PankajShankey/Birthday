@@ -14,23 +14,27 @@ box-sizing:border-box;
 font-family:Arial, sans-serif;
 }
 
-  #screen4{
+#screen4{
 overflow-y:auto;
+justify-content:flex-start;
+align-items:center;
 padding-top:40px;
 padding-bottom:120px;
+height:100vh;
 }
   
 body{
 background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-overflow:hidden;
-height:100vh;
+overflow-x:hidden;
+overflow-y:auto;
+min-height:100vh;
 color:white;
 }
 
 .screen{
 display:none;
 width:100%;
-height:100vh;
+min-height:100vh;
 justify-content:center;
 align-items:center;
 flex-direction:column;
@@ -95,7 +99,9 @@ font-weight:bold;
 
 #messageBox{
 max-width:800px;
-width:90%;
+width:95%;
+max-height:60vh;
+overflow-y:auto;
 background:rgba(255,255,255,.2);
 padding:20px;
 border-radius:20px;
@@ -103,6 +109,8 @@ font-size:1.2rem;
 line-height:1.8;
 backdrop-filter:blur(5px);
 margin-bottom:30px;
+white-space: pre-wrap;
+word-wrap: break-word;
 }
 
 .gallery{
@@ -140,6 +148,27 @@ animation:blink .6s infinite;
 50%{
 border-color:transparent;
 }
+}
+  @media(max-width:768px){
+
+h1{
+font-size:2rem;
+}
+
+h2{
+font-size:1.2rem;
+}
+
+#messageBox{
+font-size:1rem;
+line-height:1.6;
+}
+
+button{
+font-size:16px;
+padding:12px 25px;
+}
+
 }
 </style>
 </head>
