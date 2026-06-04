@@ -54,6 +54,8 @@ background:white;
 color:#ff4d6d;
 cursor:pointer;
 font-weight:bold;
+position:relative;
+z-index:999;
 }
 
 #countdown{
@@ -65,6 +67,8 @@ margin:20px 0;
 position:absolute;
 font-size:24px;
 animation:float 8s linear infinite;
+pointer-events:none;
+z-index:1;
 }
 
 @keyframes float{
