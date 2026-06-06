@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Meenu ❤️</title>
+<title>🎂 Happy Birthday Meenu ❤️</title>
 
 <style>
 *{
@@ -24,7 +24,7 @@ height:100vh;
 }
   
 body{
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+background:linear-gradient(135deg,#f8d7da,#fff0f5,#fff8f0);
 overflow-x:hidden;
 overflow-y:auto;
 min-height:100vh;
@@ -69,6 +69,12 @@ cursor:pointer;
 font-weight:bold;
 position:relative;
 z-index:999;
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
 #countdown{
@@ -132,6 +138,8 @@ justify-content:center;
 align-items:center;
 color:#ff4d6d;
 font-size:20px;
+border:4px solid white;
+box-shadow:0 0 25px rgba(255,255,255,.4);
 }
 
 .gallery img{
@@ -206,7 +214,7 @@ Open Surprise ❤️
 
 <h1>🎂 Happy Birthday Meenu 🎂</h1>
 
-<h2>❤️ From Pankaj ❤️</h2>
+<h2>🌹 A Small Birthday Surprise From Pankaj 🌹</h2>
 
 <button onclick="openLetter()">
 Read My Letter ❤️
@@ -223,7 +231,10 @@ Read My Letter ❤️
 <span class="typeCursor"></span>
 </div>
 
-<button class="nextBtn" onclick="openGallery()">
+<button id="memoryBtn"
+class="nextBtn"
+onclick="openGallery()"
+style="display:none;">
 Our Memories 📸
 </button>
 
@@ -245,32 +256,49 @@ Final Surprise ❤️
 
 <div id="screen6" class="screen">
 
-<h1>❤️ I LOVE YOU FOREVER ❤️</h1>
+<h1>🎂 Happy Birthday Meenu 🎂</h1>
 
-<h2>Happy Birthday Meenu 🎂</h2>
+<h2>🌹 Thank You For Being In My Life 🌹</h2>
 
-<h2>Love, Pankaj ❤️</h2>
+<h2>✨ Stay Happy, Healthy & Keep Smiling ✨</h2>
 
-<div style="font-size:60px">
-🎂 ❤️ 🎈 🧸 🌹 ❤️ 🎆
+<h2>❤️ Forever Yours, Pankaj ❤️</h2>
+
+<div style="font-size:55px;">
+🎂 🌹 🍫 🎁 ✨ 🧸 🌸
 </div>
 
 </div>
 
 <script>
 
-for(let i=0;i<40;i++){
+const items = [
+"🌹",
+"🎂",
+"🍫",
+"🎁",
+"✨",
+"🌸",
+"🧸",
+"❤️"
+];
+
+for(let i=0;i<12;i++){
 
 let heart=document.createElement("div");
 
-heart.innerHTML="❤️";
+heart.innerHTML =
+items[Math.floor(Math.random()*items.length)];
 
 heart.className="heart";
 
 heart.style.left=Math.random()*100+"%";
 
 heart.style.animationDuration=
-(Math.random()*5+5)+"s";
+(Math.random()*5+6)+"s";
+
+heart.style.fontSize=
+(Math.random()*15+20)+"px";
 
 document.body.appendChild(heart);
 
@@ -349,25 +377,32 @@ Forever Yours,
 `;
 
 let index=0;
+let typing;
 
 function typeMessage(){
 
-const target=
+const target =
 document.getElementById("typedText");
+document.getElementById("memoryBtn").style.display = "none";
+  
+target.innerHTML = "";
 
-target.innerHTML="";
+index = 0;
 
-index=0;
+clearInterval(typing);
 
-let typing=setInterval(()=>{
+typing = setInterval(()=>{
 
-target.innerHTML+=message.charAt(index);
+target.innerHTML += message.charAt(index);
 
 index++;
 
-if(index>=message.length){
+if(index >= message.length){
 
 clearInterval(typing);
+
+document.getElementById("memoryBtn")
+.style.display = "block";
 
 }
 
@@ -466,7 +501,6 @@ ${seconds} Seconds
 setInterval(updateCountdown,1000);
 
 updateCountdown();
-
 </script>
 
 </body>
